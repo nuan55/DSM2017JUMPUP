@@ -1,0 +1,27 @@
+
+test : sample_code.o packuse.o LinuxServer.o LinuxClient.o Linuxmain.o 
+	gcc -o test sample_code.o packuse.o LinuxServer.o LinuxClient.o Linuxmain.o  -lwiringPi -lpthread
+
+sample_code.o : sample_code.c
+	gcc -c -o sample_code.o sample_code.c -lwiringPi -lpthread
+
+packuse.o : packuse.c
+	gcc -c -o sample_code.o sample_code.c -lwiringPi -lpthread
+
+LinuxServer.o : LinuxServer.c
+	gcc -c -o LinuxServer.o LinuxServer.c -lpthread -lwiringPi
+
+LinuxClient.o : LinuxClient.c
+	gcc -c -o LinuxClient.o LinuxClient.c -lpthread -lwiringPi
+
+Linuxmain.o : Linuxmain.c
+	gcc -c -o Linuxmain.o Linuxmain.c -lpthread -lwiringPi
+
+
+
+
+stest : simpleLServer.o
+	gcc -o stest simpleLServer.o
+simpleLServer.o : simpleLServer.c
+	gcc -c -o simpleLServer.o simpleLServer.c
+
